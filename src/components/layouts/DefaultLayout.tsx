@@ -1,5 +1,7 @@
-import { Button, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import React, { ReactElement } from 'react';
+import NavBottom from '../NavBottom';
+import NavTop from '../NavTop';
 
 type Props = {
   children: ReactElement  ;
@@ -8,14 +10,11 @@ type Props = {
 
 const DefaultLayout = (props: Props) => {
   return (
-    <Flex flexDir="column" w="2xl" mx="auto">
-        <Flex>
-            <Text>Home</Text>
-            <Button variant="solid">Connect Wallet</Button>
-        </Flex>
-        {props.children}
-        <Flex>Body</Flex>
-        <Flex>Bottom</Flex>
+    <Flex position={'relative'} flexDir="column" w="2xl" mx="auto"  pb="24" px="4" maxW="md" minH="100vh">
+      <NavTop/>
+      <Box h="16"/>
+      {props.children}
+      <NavBottom/>
     </Flex>
   )
 }
